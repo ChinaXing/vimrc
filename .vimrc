@@ -1,14 +1,8 @@
 set fileencodings=en_US.utf8,gb2312,gbk,gb18030
 set termencoding=en_US.utf8
 set fileformats=unix
-set encoding=prc
-map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
-map <leader>hG  :%!tidy -iq --show-errors 0 -utf8<CR>
-noremap ,c :!/home/admin/bin/perlc --critic %<cr>
+set encoding=utf8
 
-" quickfix for Perl error formats
-set errorformat+=%m\ at\ %f\ line\ %l\.
-set errorformat+=%m\ at\ %f\ line\ %l
 
 set nocompatible
 " allow backspacing over everything in insert mode
@@ -56,27 +50,18 @@ let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window=1
 
-"settings for minibuffer
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1 
+" --- netrwin ----- 
+let g:netrw_winsize = 30
+nmap <silent> <leader>fe :Sexplore!<cr>
 
-"winmanager
-map<c-w><c-f> :FirstExplorerWindow<cr>
-map <c-w><c-b> :BottomExplorerWindow<cr>
-map <c-w><c-t> :WMToggle<cr> 
+""""""""""""""""""""""""""""
+" winManager  setting
+""""""""""""""""""""""""""""
+let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
+let g:winManagerWidth = 30
+let g:defaultExplorer = 1
 
-nnoremap <silent> <F2> :WMToggle<CR>
-
-"settings for cscope
-if has("cscope")
-    set cst
-endif
-
-
-"""""""""""""""""""""""""""""""
-" TAGS
-"""""""""""""""""""""""""""""""
-"set tags=./tags,/home/xiabao/workspace/BF1010/TAGS/COMMON_APPL_ENV/tags,/home/xiabao/workspace/BF1010/TAGS/GLOBAL_ENV/tags,/home/xiabao/workspace/BF1010/TAGS/ENV/tags,/home/xiabao/workspace/BF1010/TAGS/PS_REL/tags,/home/xiabao/workspace/BF1010/TAGS/CPLANE/tags,/home/xiabao/workspace/BF1010/TAGS/COMMON/tags,/home/xiabao/workspace/BF1010/TAGS/ASN1_IF/tags,/home/xiabao/workspace/BF1010/TAGS/OAM_IF/tags,/home/xiabao/workspace/BF1010/TAGS/ISAR_VALFCT/tags,/home/xiabao/workspace/BF1010/TAGS/ISAR_PRTFCT/tags;
+nmap <C-W><C-F>  :FirstExplorerWindow<cr>
+nmap <C-W><C-B>  :BottomExplorerWindow<CR>
+nmap <silent> <leader>wm :WMToggle<CR>
 
