@@ -1,5 +1,5 @@
-set fileencodings=en_US.utf8,gb2312,gbk,gb18030
-set termencoding=en_US.utf8
+set fileencodings=utf8,gb2312,gbk,gb18030
+set termencoding=utf8
 set fileformats=unix
 set encoding=utf8
 
