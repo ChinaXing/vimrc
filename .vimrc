@@ -51,17 +51,26 @@ let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window=1
 
 " --- netrwin ----- 
-let g:netrw_winsize = 30
-nmap <silent> <leader>fe :Sexplore!<cr>
+"let loaded_netrw = 1
+"let g:defaultExplorer = 0
+ let g:netrw_winsize = 30
+"map <silent> <leader>fe :Sexplore!<cr>
 
 """"""""""""""""""""""""""""
 " winManager  setting
 """"""""""""""""""""""""""""
 let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
 let g:winManagerWidth = 30
-let g:defaultExplorer = 1
+"let g:defaultExplorer = 1
 
 nmap <C-W><C-F>  :FirstExplorerWindow<cr>
 nmap <C-W><C-B>  :BottomExplorerWindow<CR>
 nmap <silent> <leader>wm :WMToggle<CR>
 
+""""""""""""""""""""""""""""
+" Mojolicious
+" https://github.com/yko/mojo.vim
+"""""""""""""""""""""""""""
+let mojo_highlight_data = 1
+let mojo_disable_html = 0
+let mojo_no_helpers = 0

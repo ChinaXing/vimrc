@@ -25,7 +25,7 @@
 "
 "-----------------------------------------------------------------------------
 " Update history removed, it's not very interesting.
-" Contributors were: Doug Potts, Bram Moolenaar, Thomas Köhler
+" Contributors were: Doug Potts, Bram Moolenaar, Thomas K?hler
 "
 " This is a modified version to be compatible with winmanager.vim. 
 " Changes by Srinath Avadhanula
@@ -388,7 +388,7 @@ function! s:EditDir(...)
 		syn match browseSortBy      "^\" Sorted by .*$"  contains=browseSuffixInfo
 		syn match browseSuffixInfo  "(.*)$"  contained
 		syn match browseFilter      "^\" Not Showing:.*$"
-		syn match browseFiletime    "«\d\+$"
+		syn match browseFiletime    "?\d\+$"
 		exec('syn match browseSuffixes    "' . b:suffixesHighlight . '"')
 
 		"hi def link browseSynopsis    PreProc
@@ -897,7 +897,7 @@ function! s:ExtractFileDate(line)
 	if w:longlist==0
 		return getftime(s:ExtractFileName(a:line))
 	else
-		return strpart(matchstr(strpart(a:line,b:maxFileLen+b:maxFileSizeLen+4),"«.*"),1) + 0
+		return strpart(matchstr(strpart(a:line,b:maxFileLen+b:maxFileSizeLen+4),"?.*"),1) + 0
 	endif
 endfunction
 
@@ -1011,7 +1011,7 @@ endfunction
 function! s:FileModDate(name)
 	let filetime=getftime(a:name)
 	if filetime > 0
-		return strftime(g:explDateFormat,filetime) . " «" . filetime
+		return strftime(g:explDateFormat,filetime) . " ?" . filetime
 	else
 		return ""
 	endif
