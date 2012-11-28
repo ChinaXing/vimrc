@@ -13,6 +13,7 @@ set nobackup
 set shiftwidth=4                " autoindent witespace width      
 set uc=0                        " do not use swap file when editing
 set nu                          " show line number "
+set expandtab                   " expand TAB to white space "
 
 filetype plugin on
 
