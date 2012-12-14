@@ -81,3 +81,44 @@ endfunc
 
 map <leader>jt :call Jekyll_AddTitle()<CR>
 
+"""""""""""""""""""""""""""""
+" Auto insert file title
+"""""""""""""""""""""""""""""
+function AddTitle(cmt_start,cmt_end,cmt)
+    if a:cmt_start == a:cmt
+        call setline(1,repeat(a:cmt,60))
+    else
+        call setline(1,a:cmt_start.repeat(a:cmt,60))
+    endif
+    call append(1,a:cmt."Author    : ChinaXing - chen.yack@gmail.com")
+    call append(2,a:cmt."Create    : ".strftime("%Y-%m-%d %H:%M"))
+    call append(3,a:cmt."Function  : xxxxx")
+    if a:cmt_end == a:cmt
+        call append(4,repeat(a:cmt,60))
+    else
+        call append(4,repeat(a:cmt,60).a:cmt_end)
+    endif
+endfunc
+
+function AddTitle_for_file()
+    if &filetype == "shell" || &filetype == "bash" 
+                \ || &filetype == "perl" || &filetype == "python"
+        let s:cmt_start = '#'
+        let s:cmt = '#' 
+        let s:cmt_end = '#'
+    elseif &filetype == "c" || &filetype == "cpp" || &filetype == "javascript"
+        let s:cmt_start = '/' 
+        let s:cmt = '*' 
+        let s:cmt_end = '/'
+    elseif &filetype == "vim"
+        let s:cmt_start = '"' 
+        let s:cmt = '"' 
+        let s:cmt_end = '"'
+    else
+        return 
+    endif
+    call AddTitle(s:cmt_start,s:cmt_end,s:cmt)
+endfunc
+
+map <leader>at :call AddTitle_for_file()<CR>
+
