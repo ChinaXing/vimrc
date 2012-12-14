@@ -66,3 +66,18 @@ nmap <silent> <leader>wm :WMToggle<CR>
 let mojo_highlight_data = 1
 let mojo_disable_html = 0
 let mojo_no_helpers = 0
+
+"""""""""""""""""""""""""""""
+" Jekyll
+"""""""""""""""""""""""""""""
+function Jekyll_AddTitle()
+    call setline(1,"---")
+    call append(1,"layout: post")
+    call append(2,"title: title")
+    call append(3,"category: category")
+    call append(4,"change_frequency: monthly")
+    call append(5,"---")
+endfunc
+
+map <leader>jt :call Jekyll_AddTitle()<CR>
+
