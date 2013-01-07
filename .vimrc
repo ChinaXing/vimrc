@@ -29,6 +29,14 @@ if has("autocmd")
   autocmd FileType text setlocal textwidth=78
   autocmd FileType html setlocal shiftwidth=2
   autocmd FileType xml setlocal shiftwidth=2
+  augroup json_autocmd
+   autocmd!
+   autocmd FileType json set autoindent
+   autocmd FileType json set formatoptions=tcq2l 
+   autocmd FileType json set textwidth=78 shiftwidth=2
+   autocmd FileType json set softtabstop=2 tabstop=8
+   autocmd FileType json set expandtab
+   autocmd FileType json set foldmethod=syntax
 else
   set autoindent        " always set autoindenting on
 endif
@@ -101,7 +109,7 @@ function AddTitle(cmt_start,cmt_end,cmt)
 endfunc
 
 function AddTitle_for_file()
-    if &filetype == "shell" || &filetype == "bash" 
+    if &filetype == "sh" || &filetype == "bash" 
                 \ || &filetype == "perl" || &filetype == "python"
         let s:cmt_start = '#'
         let s:cmt = '#' 
